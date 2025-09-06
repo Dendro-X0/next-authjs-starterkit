@@ -1,5 +1,7 @@
 # Next.js Auth Starter Kit
 
+![CI](https://github.com/Dendro-X0/next-authjs-starter/actions/workflows/ci.yml/badge.svg)
+
 A production-ready authentication boilerplate built with Next.js, NextAuth.js v5, Prisma, and Shadcn UI. Get started with secure user authentication in minutes.
 
 ## ✨ Features
@@ -154,11 +156,15 @@ Notes
 - EMAIL_FROM and TWO_FACTOR_ISSUER are optional for local development to simplify setup. In production, set both explicitly.
 - When EMAIL_FROM is not provided, the app uses the placeholder `onboarding@resend.dev`. Configure a verified sender in Resend and set EMAIL_FROM for production.
 - To use SMTP locally (e.g., MailHog), set `MAIL_PROVIDER=SMTP` and configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, and `SMTP_PASS`.
-- Ensure all values use your deployment URL (e.g., APP_URL/NEXT_PUBLIC_APP_URL) with HTTPS in production.
+- Ensure `NEXT_PUBLIC_APP_URL` matches your deployment URL (HTTPS in production).
 
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
+Deploy with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Dendro-X0/next-authjs-starter&project-name=next-authjs-starter&repository-name=next-authjs-starter&env=DATABASE_URL,AUTH_SECRET,NEXT_PUBLIC_APP_URL,GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET,GITHUB_CLIENT_ID,GITHUB_CLIENT_SECRET,RESEND_API_KEY,EMAIL_FROM,MAIL_PROVIDER,SMTP_HOST,SMTP_PORT,SMTP_SECURE,SMTP_USER,SMTP_PASS,TWO_FACTOR_ISSUER)
 
 1. Push your code to GitHub
 2. Connect your repository to Vercel
