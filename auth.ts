@@ -6,7 +6,7 @@ import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 
 import { db } from '@/lib/db';
-import { UserRole } from '@prisma/client';
+import type { Prisma, $Enums } from '@prisma/client';
 import { LoginSchema } from '@/schemas';
 import { getTwoFactorConfirmationByUserId } from '@/actions/2fa';
 import { env } from '~/env';
@@ -54,7 +54,7 @@ export const authConfig: NextAuthConfig = {
       }
 
       if (token.role && session.user) {
-        session.user.role = token.role as UserRole;
+        session.user.role = token.role as $Enums.UserRole;
       }
 
       return session;

@@ -1,4 +1,4 @@
-import { UserRole } from "@prisma/client";
+import type { $Enums } from "@prisma/client";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import NextAuth, { type DefaultSession } from "next-auth";
 
@@ -9,7 +9,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       /** The user's role. */
-      role: UserRole;
+      role: $Enums.UserRole;
       id: string;
       /**
        * By default, TypeScript merges new interface properties.
@@ -26,6 +26,6 @@ declare module "next-auth/jwt" {
   /** Returned by the `jwt` callback and `auth`, when using JWT sessions */
   interface JWT {
     /** The user's role. */
-    role?: UserRole;
+    role?: $Enums.UserRole;
   }
 }
