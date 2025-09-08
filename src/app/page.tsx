@@ -22,7 +22,7 @@ export default function Home() {
             <Link href="/auth/signup">Get Started</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="https://github.com/Dendro-X0/next-authjs-starter" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <Github className="h-5 w-5" />
               GitHub
             </a>
