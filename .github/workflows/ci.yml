@@ -8,9 +8,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres" --health-interval=10s --health-timeout=5s --health-retries=10
     env:
       NODE_OPTIONS: --max-old-space-size=4096
-      DATABASE_URL: postgresql://user:password@localhost:5432/db
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/db
       AUTH_SECRET: test-secret
       NEXT_PUBLIC_APP_URL: https://example.com
       GOOGLE_CLIENT_ID: test
@@ -34,6 +45,15 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Wait for Postgres
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+          for i in {1..30}; do
+            pg_isready -h localhost -p 5432 -U postgres && break
+            sleep 1
+          done
 
       - name: Generate Prisma Client
         run: pnpm prisma generate
