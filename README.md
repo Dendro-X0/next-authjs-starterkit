@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/Dendro-X0/next-authjs-starter/actions/workflows/ci.yml/badge.svg)
 
-A production-ready authentication boilerplate built with Next.js, NextAuth.js v5, Prisma, and Shadcn UI. Get started with secure user authentication in minutes.
+Next.js Auth Starter Kit is a batteries‑included authentication template for modern web apps. It ships with credentials and OAuth (Google, GitHub), email verification, secure password reset, and optional 2FA — all wired end‑to‑end with Auth.js v5 and Prisma. The UI is mobile‑first and accessible by default using Tailwind CSS and shadcn/ui, so you can focus on product instead of plumbing.
 
 ## ✨ Features
 
