@@ -98,6 +98,8 @@ export function TwoFactorVerify() {
                       placeholder="123456"
                       className="text-center text-lg tracking-widest"
                       maxLength={6}
+                      inputMode="numeric"
+                      autoComplete="one-time-code"
                       {...field}
                     />
                   </FormControl>

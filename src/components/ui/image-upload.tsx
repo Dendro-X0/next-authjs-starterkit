@@ -40,6 +40,13 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
     inputRef.current?.click();
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div className="flex flex-col items-center gap-4">
       <input
@@ -53,6 +60,11 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
       <div
         className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center cursor-pointer hover:border-gray-400 transition-colors"
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={disabled ? -1 : 0}
+        aria-label={preview ? 'Change avatar' : 'Upload avatar'}
+        aria-disabled={disabled}
       >
         {preview ? (
           <Image

@@ -15,22 +15,22 @@ export function Header() {
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between mx-auto px-4">
         <div className="flex items-center space-x-4">
-          <Link href="/" className="font-semibold">
+          <Link href="/" className="font-semibold" aria-label="Home">
             Auth Boilerplate
           </Link>
         </div>
-
-        <div className="flex items-center space-x-2">
+        
+        <nav aria-label="Primary" className="flex items-center space-x-2">
           {!isAuthPage && !isProfilePage && (
             <>
               <Button asChild variant="ghost" size="sm">
-                <Link href="/profile" prefetch={false}>
+                <Link href="/profile" prefetch={false} aria-current={pathname.startsWith('/profile') ? 'page' : undefined}>
                   <User className="h-4 w-4 mr-2" />
                   Profile
                 </Link>
               </Button>
               <Button asChild variant="ghost" size="sm">
-                <Link href="/settings" prefetch={false}>
+                <Link href="/settings" prefetch={false} aria-current={pathname.startsWith('/settings') ? 'page' : undefined}>
                   <Settings className="h-4 w-4 mr-2" />
                   Settings
                 </Link>
@@ -38,7 +38,7 @@ export function Header() {
             </>
           )}
           <ModeToggle />
-        </div>
+        </nav>
       </div>
     </header>
   )

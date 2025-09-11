@@ -91,6 +91,7 @@ export function ResetPasswordForm() {
                       <Input
                         type={showPassword ? "text" : "password"}
                         placeholder="••••••••"
+                        autoComplete="new-password"
                         {...field}
                       />
                       <Button
@@ -126,6 +127,7 @@ export function ResetPasswordForm() {
                       <Input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="••••••••"
+                        autoComplete="new-password"
                         {...field}
                       />
                       <Button
