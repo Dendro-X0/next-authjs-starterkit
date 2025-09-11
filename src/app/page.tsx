@@ -5,7 +5,7 @@ import { Github, Lock, Mail, Users, ShieldCheck, KeyRound, Settings } from "luci
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background">
+    <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center bg-background">
       <div className="container max-w-4xl py-12 text-center">
         <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
@@ -22,7 +22,7 @@ export default function Home() {
             <Link href="/auth/signup">Get Started</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="github.com/Dendro-X0/next-authjs-starter" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="https://github.com/Dendro-X0/next-authjs-starter" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" aria-label="Open the project on GitHub (opens in a new tab)">
               <Github className="h-5 w-5" />
               GitHub
             </a>

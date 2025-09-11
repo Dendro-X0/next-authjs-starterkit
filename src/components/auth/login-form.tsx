@@ -106,6 +106,8 @@ export function LoginForm() {
                         <Input
                           {...field}
                           placeholder="123456"
+                          inputMode="numeric"
+                          autoComplete="one-time-code"
                           disabled={isPending}
                         />
                       </FormControl>
@@ -127,6 +129,8 @@ export function LoginForm() {
                             {...field}
                             placeholder="your.email@example.com"
                             type="email"
+                            autoComplete="email"
+                            inputMode="email"
                             disabled={isPending}
                           />
                         </FormControl>
@@ -146,6 +150,7 @@ export function LoginForm() {
                               {...field}
                               placeholder="********"
                               type={showPassword ? "text" : "password"}
+                              autoComplete="current-password"
                               disabled={isPending}
                             />
                             <Button
