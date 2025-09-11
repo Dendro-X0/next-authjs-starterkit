@@ -83,7 +83,7 @@ export function SignupForm() {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder="John Doe" autoComplete="name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,7 +96,7 @@ export function SignupForm() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="example@email.com" {...field} />
+                    <Input placeholder="example@email.com" autoComplete="email" inputMode="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -113,6 +113,7 @@ export function SignupForm() {
                       <Input
                         type={showPassword ? "text" : "password"}
                         placeholder="********"
+                        autoComplete="new-password"
                         {...field}
                         onChange={(e) => {
                           field.onChange(e);
@@ -150,6 +151,7 @@ export function SignupForm() {
                       <Input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="********"
+                        autoComplete="new-password"
                         {...field}
                       />
                       <div className="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3 text-muted-foreground">
