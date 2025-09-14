@@ -19,6 +19,13 @@ import { ImageUpload } from "@/components/ui/image-upload"
 
 const profileSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  username: z
+    .string()
+    .min(3, { message: 'Username must be at least 3 characters' })
+    .max(30, { message: 'Username must be at most 30 characters' })
+    .regex(/^[a-zA-Z0-9._-]+$/, {
+      message: 'Username can only contain letters, numbers, dots, underscores, and hyphens',
+    }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   bio: z.string().max(160, { message: "Bio must be less than 160 characters" }).optional(),
   location: z.string().optional(),
@@ -40,6 +47,7 @@ export function ProfilePage() {
     resolver: zodResolver(profileSchema),
     defaultValues: {
       name: "",
+      username: "",
       email: "",
       bio: "",
       location: "",
@@ -54,6 +62,7 @@ export function ProfilePage() {
       setUser(fetchedUser);
       form.reset({
         name: fetchedUser.name || "",
+        username: (fetchedUser as unknown as { username?: string }).username || "",
         email: fetchedUser.email || "",
         bio: fetchedUser.bio || "",
         location: fetchedUser.location || "",
@@ -148,18 +157,32 @@ export function ProfilePage() {
                     />
                     <FormField
                       control={form.control}
-                      name="email"
+                      name="username"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel>Username</FormLabel>
                           <FormControl>
-                            <Input placeholder="john@example.com" {...field} />
+                            <Input placeholder="johndoe" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                   </div>
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="john@example.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
                   <FormField
                     control={form.control}

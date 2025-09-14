@@ -10,7 +10,7 @@ Next.js Auth Starter Kit is a batteries‑included authentication template for m
 
 ## ✨ Features
 
-- **Credentials-Based Authentication**: Secure email and password login.
+- **Credentials-Based Authentication**: Secure login with email or username + password.
 - **Social Logins**: Integrated with Google and GitHub for easy sign-in.
 - **Email Verification**: Ensure users have a valid email address.
 - **Password Reset**: Secure flow for users to reset their password.
@@ -33,6 +33,8 @@ pnpm dev
 ```
 
 Open http://localhost:3000 in your browser. For full setup, see `docs/getting-started.md` and `docs/configuration.md`.
+ 
+Note: A unique optional `username` field was added to `prisma/schema.prisma` to support username login. Ensure you run `pnpm prisma migrate dev` after pulling changes to update your database.
 
 ## Documentation
 

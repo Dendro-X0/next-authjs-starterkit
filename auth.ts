@@ -6,7 +6,7 @@ import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 
 import { db } from '@/lib/db';
-import type { Prisma, $Enums } from '@prisma/client';
+import type { $Enums } from '@prisma/client';
 import { LoginSchema } from '@/schemas';
 import { getTwoFactorConfirmationByUserId } from '@/actions/2fa';
 import { env } from '~/env';
@@ -85,26 +85,30 @@ export const authConfig: NextAuthConfig = {
     }),
     Credentials({
       async authorize(credentials) {
-        const validatedFields = LoginSchema.safeParse(credentials);
+        const validated = LoginSchema.safeParse(credentials);
+        if (!validated.success) return null;
 
-        if (validatedFields.success) {
-          const { email, password } = validatedFields.data;
+        const { identifier, password } = validated.data;
 
-          const user = await db.user.findUnique({
-            where: { email },
-          });
+        type UserRow = {
+          id: string;
+          password: string | null;
+          emailVerified: Date | null;
+          isTwoFactorEnabled: boolean;
+        };
+        const users = await db.$queryRaw<UserRow[]>`
+          SELECT * FROM "User"
+          WHERE "email" = ${identifier} OR "username" = ${identifier}
+          LIMIT 1
+        `;
+        const user = users[0];
 
-          if (!user || !user.password) {
-            return null;
-          }
+        if (!user || !user.password) return null;
 
-          const passwordsMatch = await bcrypt.compare(password, user.password);
+        const passwordsMatch = await bcrypt.compare(password, user.password);
+        if (!passwordsMatch) return null;
 
-          if (passwordsMatch) {
-            return user;
-          }
-        }
-        return null;
+        return user;
       },
     }),
   ],

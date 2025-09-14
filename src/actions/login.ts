@@ -22,11 +22,22 @@ export async function login(values: z.infer<typeof LoginSchema>) {
     return { error: 'Invalid fields!' };
   }
 
-  const { email, password, code } = validatedFields.data;
+  const { identifier, password, code } = validatedFields.data;
 
-  const existingUser = await db.user.findUnique({
-    where: { email },
-  });
+  type UserRow = {
+    id: string;
+    email: string | null;
+    password: string | null;
+    emailVerified: Date | null;
+    isTwoFactorEnabled: boolean;
+  };
+  const rows = await db.$queryRaw<UserRow[]>`
+    SELECT "id", "email", "password", "emailVerified", "isTwoFactorEnabled"
+    FROM "User"
+    WHERE "email" = ${identifier} OR "username" = ${identifier}
+    LIMIT 1
+  `;
+  const existingUser = rows[0];
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: 'Invalid credentials!' };
@@ -88,7 +99,7 @@ export async function login(values: z.infer<typeof LoginSchema>) {
 
   try {
     await signIn('credentials', {
-      email,
+      identifier,
       password,
       redirectTo: DEFAULT_LOGIN_REDIRECT,
     });

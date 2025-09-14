@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2025-09-14
+
+### Added
+- Username support in the data model: added optional unique `username` field to `prisma/schema.prisma` `User` model.
+- Credentials login now supports signing in with either `email` or `username` plus password.
+- Profile page now allows users to edit their `username` with uniqueness validation.
+
+### Changed
+- `LoginSchema` now uses `identifier` (email or username) instead of `email`.
+- `RegisterSchema` includes `username`. `name` in registration is now optional and can be set later in Profile.
+- `ProfileSchema` now includes `username` validation.
+- NextAuth Credentials `authorize()` updated to look up users by `email` or `username`.
+- `src/actions/login.ts` and UI `login-form.tsx` updated for `identifier`.
+- `src/actions/register.ts` updated to persist `username` and only persist `name` if provided.
+- Profile UI updated to include `username` field; signup form no longer asks for `name`.
+- Documentation updated in `README.md` and `docs/overview.md` to reflect username/email login and migration note.
+
+### Migration
+- Run the following after pulling changes to update your database and regenerate types:
+  - `pnpm prisma migrate dev -n "add-username-to-user"`
+  - `pnpm prisma generate`
+- Temporary `// @ts-expect-error` comments are present where `username` is referenced in code until Prisma Client types are regenerated. They can be removed after the migration/generate steps.
+
+### Notes
+- Email verification and 2FA flows remain email-based; `username` is for login/profile convenience.
+
 ## 2025-09-12
 
 ### Added

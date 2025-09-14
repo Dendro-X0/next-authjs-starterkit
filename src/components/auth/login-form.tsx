@@ -47,7 +47,7 @@ export function LoginForm() {
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
+      identifier: "",
       password: "",
       code: "",
       rememberMe: false,
@@ -120,17 +120,17 @@ export function LoginForm() {
                 <>
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="identifier"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>Email or Username</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
-                            placeholder="your.email@example.com"
-                            type="email"
-                            autoComplete="email"
-                            inputMode="email"
+                            placeholder="johndoe or john@example.com"
+                            type="text"
+                            autoComplete="username"
+                            inputMode="text"
                             disabled={isPending}
                           />
                         </FormControl>

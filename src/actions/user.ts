@@ -40,9 +40,31 @@ export async function updateProfile(values: z.infer<typeof ProfileSchema>) {
     return { error: "Invalid fields!" };
   }
 
-  const { name, email, bio, location, website } = validatedFields.data;
+  const { name, username, email, bio, location, website } = validatedFields.data as {
+    name: string;
+    username: string;
+    email: string;
+    bio?: string;
+    location?: string;
+    website?: string;
+  };
 
   try {
+    // Check username uniqueness if changed (raw SQL to avoid type drift)
+    const current = await db.user.findUnique({ where: { id: session.user.id } });
+    if (!current) {
+      return { error: "User not found" };
+    }
+    const currentUsername = (current as unknown as { username?: string }).username || "";
+    if (username && username !== currentUsername) {
+      const rows = await db.$queryRaw<{ id: string }[]>`
+        SELECT "id" FROM "User" WHERE "username" = ${username} AND "id" <> ${current.id} LIMIT 1
+      `;
+      if (rows.length > 0) {
+        return { error: "Username is already taken" };
+      }
+    }
+
     await db.user.update({
       where: { id: session.user.id },
       data: {
@@ -53,6 +75,15 @@ export async function updateProfile(values: z.infer<typeof ProfileSchema>) {
         website,
       },
     });
+
+    // Update username separately via raw SQL to avoid client type mismatch
+    if (username && username !== currentUsername) {
+      await db.$executeRawUnsafe(
+        'UPDATE "User" SET "username" = $1 WHERE "id" = $2',
+        username,
+        session.user.id,
+      );
+    }
 
     return { success: "Profile updated successfully!" };
   } catch (error) {

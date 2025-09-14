@@ -45,7 +45,7 @@ export function SignupForm() {
   const form = useForm<SignupFormValues>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
-      name: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -76,14 +76,15 @@ export function SignupForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            {/* Name field removed; users can set name later in Profile */}
             <FormField
               control={form.control}
-              name="name"
+              name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" autoComplete="name" {...field} />
+                    <Input placeholder="johndoe" autoComplete="username" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

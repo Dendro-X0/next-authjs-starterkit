@@ -2,6 +2,8 @@
 
 Next.js Auth Starter Kit is a batteries‑included authentication template for modern web apps. It ships with credentials and OAuth (Google, GitHub), email verification, secure password reset, and optional 2FA — all wired end‑to‑end with Auth.js v5 and Prisma. The UI is mobile‑first and accessible by default using Tailwind CSS and shadcn/ui, so you can focus on product instead of plumbing.
 
+Credentials login supports signing in with either a verified email address or a unique username, paired with your password.
+
 ## Tech Stack
 
 - Framework: [Next.js](https://nextjs.org/) 15
