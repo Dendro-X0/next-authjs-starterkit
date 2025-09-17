@@ -55,8 +55,9 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@netlify/next": "^1.4.9",
     "@tailwindcss/postcss": "^4.1.13",
-    "@types/node": "^24.4.0",
+    "@types/node": "^20",
     "@types/nodemailer": "^7.0.1",
     "@types/qrcode": "^1.5.5",
     "@types/react": "19.1.9",

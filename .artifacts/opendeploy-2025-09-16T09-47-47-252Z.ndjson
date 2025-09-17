@@ -1,0 +1,63 @@
+{"event":"phase","phase":"generate-config","provider":"netlify","path":"E:\\Codebase\\my-workspace\\next-authjs-starterkit","ts":"2025-09-16T09:47:58.805Z"}
+{"event":"phase","phase":"deploy","provider":"netlify","command":"netlify deploy --build --prod","cwd":"E:\\Codebase\\my-workspace\\next-authjs-starterkit","ts":"2025-09-16T09:47:58.809Z"}
+{"event":"nl:stdout","line":" »   Warning: --build is now the default and can safely be omitted.\n","ts":"2025-09-16T09:48:08.477Z"}
+{"event":"nl:stdout","line":"\u001b[96m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[96m\u001b[1mNetlify Build                                                 \u001b[22m\u001b[39m\n\u001b[96m\u001b[1m────────────────────────────────────────────────────────────────\u001b[22m\u001b[39m\n","ts":"2025-09-16T09:48:12.040Z"}
+{"event":"nl:stdout","line":"\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Version\u001b[22m\u001b[39m\n  @netlify/build 35.1.6\n","ts":"2025-09-16T09:48:12.041Z"}
+{"event":"nl:stdout","line":"\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Flags\u001b[22m\u001b[39m\n","ts":"2025-09-16T09:48:12.042Z"}
+{"event":"nl:stdout","line":"  accountId: 67a809d7e493bd93c5b2ffe1\n","ts":"2025-09-16T09:48:12.046Z"}
+{"event":"nl:stdout","line":"\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Current directory\u001b[22m\u001b[39m\n  E:\\Codebase\\my-workspace\\next-authjs-starterkit\n","ts":"2025-09-16T09:48:15.440Z"}
+{"event":"nl:stdout","line":"\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Config file\u001b[22m\u001b[39m\n  E:\\Codebase\\my-workspace\\next-authjs-starterkit\\netlify.toml\n\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Context\u001b[22m\u001b[39m\n  production\n","ts":"2025-09-16T09:48:15.440Z"}
+{"event":"nl:stdout","line":"\u001b[36m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[36m\u001b[1m❯ Using Next.js Runtime - v5.13.2\u001b[22m\u001b[39m\n","ts":"2025-09-16T09:48:16.422Z"}
+{"event":"nl:stdout","line":"​\n\u001b[36m$ prisma migrate deploy && next build\u001b[39m\n","ts":"2025-09-16T09:48:18.571Z"}
+{"event":"nl:stdout","line":"\u001b[96m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[96m\u001b[1mbuild.command from netlify.toml                               \u001b[22m\u001b[39m\n\u001b[96m\u001b[1m────────────────────────────────────────────────────────────────\u001b[22m\u001b[39m\n","ts":"2025-09-16T09:48:18.570Z"}
+{"event":"nl:stderr","line":"warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).\nFor more information, see: https://pris.ly/prisma-config\n\n","ts":"2025-09-16T09:48:20.404Z"}
+{"event":"nl:stderr","line":"Environment variables loaded from .env\n","ts":"2025-09-16T09:48:20.640Z"}
+{"event":"nl:stdout","line":"Prisma schema loaded from prisma\\schema.prisma\n","ts":"2025-09-16T09:48:20.641Z"}
+{"event":"nl:stdout","line":"Datasource \"db\": PostgreSQL database \"neondb\", schema \"public\" at \"ep-jolly-mouse-afl74vwj-pooler.c-2.us-west-2.aws.neon.tech\"\n","ts":"2025-09-16T09:48:20.644Z"}
+{"event":"nl:stdout","line":"\n","ts":"2025-09-16T09:48:27.041Z"}
+{"event":"nl:stdout","line":"5 migrations found in prisma/migrations\n\n","ts":"2025-09-16T09:48:27.041Z"}
+{"event":"nl:stdout","line":"\n","ts":"2025-09-16T09:48:37.074Z"}
+{"event":"nl:stdout","line":"No pending migrations to apply.\n","ts":"2025-09-16T09:48:37.075Z"}
+{"event":"nl:stdout","line":"   ▲ Next.js 15.5.3\n","ts":"2025-09-16T09:48:38.925Z"}
+{"event":"nl:stdout","line":"   - Environments: .env.production.local, .env\n   - Experiments (use with caution):\n     · optimizePackageImports\n\n","ts":"2025-09-16T09:48:38.925Z"}
+{"event":"nl:stdout","line":"   Creating an optimized production build ...\n","ts":"2025-09-16T09:48:39.202Z"}
+{"event":"nl:stdout","line":" ✓ Compiled successfully in 8.5s\n","ts":"2025-09-16T09:48:51.581Z"}
+{"event":"nl:stdout","line":"   Linting and checking validity of types ...\n","ts":"2025-09-16T09:48:51.583Z"}
+{"event":"nl:stdout","line":"   Collecting page data ...\n","ts":"2025-09-16T09:48:58.660Z"}
+{"event":"nl:stdout","line":"   Generating static pages (0/16) ...\n","ts":"2025-09-16T09:49:01.661Z"}
+{"event":"nl:stdout","line":"   Generating static pages (4/16) \r\n","ts":"2025-09-16T09:49:02.832Z"}
+{"event":"nl:stdout","line":"   Generating static pages (8/16) \r\n","ts":"2025-09-16T09:49:03.077Z"}
+{"event":"nl:stdout","line":"   Generating static pages (12/16) \r\n","ts":"2025-09-16T09:49:03.221Z"}
+{"event":"nl:stdout","line":" ✓ Generating static pages (16/16)\n","ts":"2025-09-16T09:49:03.363Z"}
+{"event":"nl:stdout","line":"   Finalizing page optimization ...\n","ts":"2025-09-16T09:49:04.018Z"}
+{"event":"nl:stdout","line":"   Collecting build traces ...\n","ts":"2025-09-16T09:49:04.019Z"}
+{"event":"nl:stdout","line":"\n","ts":"2025-09-16T09:49:24.163Z"}
+{"event":"nl:stdout","line":"Route (app)                                 Size  First Load JS\n┌ ○ /                                      168 B         106 kB\n├ ○ /_not-found                            991 B         103 kB\n├ ƒ /api/auth/[...nextauth]                125 B         102 kB\n├ ƒ /api/avatar/upload                     125 B         102 kB\n├ ○ /auth/2fa-recovery                    4.1 kB         154 kB\n├ ○ /auth/2fa-setup                      4.14 kB         157 kB\n├ ○ /auth/2fa-verify                     3.84 kB         154 kB\n├ ○ /auth/error                            168 B         106 kB\n├ ○ /auth/forgot-password                4.44 kB         145 kB\n├ ○ /auth/login                          5.33 kB         154 kB\n├ ○ /auth/new-verification               1.67 kB         116 kB\n├ ○ /auth/reset-password                 4.37 kB         142 kB\n├ ○ /auth/signup                         4.87 kB         152 kB\n├ ○ /profile                             5.39 kB         158 kB\n└ ○ /settings                            12.4 kB         174 kB\n+ First Load JS shared by all             102 kB\n  ├ chunks/72-08b9e3df471ab2ba.js        45.9 kB\n  ├ chunks/9dda1f82-b46481d84d4744b4.js  54.2 kB\n  └ other shared chunks (total)          2.01 kB\n\n","ts":"2025-09-16T09:49:24.169Z"}
+{"event":"nl:stdout","line":"\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n","ts":"2025-09-16T09:49:24.172Z"}
+{"event":"nl:stdout","line":"​\n","ts":"2025-09-16T09:49:24.238Z"}
+{"event":"nl:stdout","line":"\u001b[90m(build.command completed in 1m 5.6s)\u001b[39m\n","ts":"2025-09-16T09:49:24.239Z"}
+{"event":"nl:stdout","line":"\u001b[96m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[96m\u001b[1mFunctions bundling                                            \u001b[22m\u001b[39m\n\u001b[96m\u001b[1m────────────────────────────────────────────────────────────────\u001b[22m\u001b[39m\n","ts":"2025-09-16T09:49:32.398Z"}
+{"event":"nl:stdout","line":"​\n","ts":"2025-09-16T09:49:32.399Z"}
+{"event":"nl:stdout","line":"​\nPackaging Functions from \u001b[36m.netlify\\functions-internal\u001b[39m directory:\n - ___netlify-server-handler\\___netlify-server-handler.mjs\n","ts":"2025-09-16T09:49:32.398Z"}
+{"event":"nl:stdout","line":"​\n","ts":"2025-09-16T09:49:34.653Z"}
+{"event":"nl:stdout","line":"\u001b[90m(Functions bundling completed in 2.2s)\u001b[39m\n","ts":"2025-09-16T09:49:34.654Z"}
+{"event":"nl:stdout","line":"\n","ts":"2025-09-16T09:49:39.420Z"}
+{"event":"nl:stdout","line":"Deploying to Netlify\n────────────────────────────────────────────────────────────────\n\n","ts":"2025-09-16T09:49:39.421Z"}
+{"event":"nl:stdout","line":"\u001b[32mDeploy path: \u001b[39m       E:\\Codebase\\my-workspace\\next-authjs-starterkit\\.next\n\u001b[32mConfiguration path: \u001b[39mE:\\Codebase\\my-workspace\\next-authjs-starterkit\\netlify.toml\n\n","ts":"2025-09-16T09:49:39.421Z"}
+{"event":"nl:stderr","line":"\u001b[33m⠋\u001b[39m Uploading blobs to deploy store...\n\n","ts":"2025-09-16T09:49:42.380Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m Finished uploading blobs to deploy store\n","ts":"2025-09-16T09:49:55.204Z"}
+{"event":"nl:stderr","line":"\u001b[33m⠋\u001b[39m Hashing files...\n","ts":"2025-09-16T09:49:55.205Z"}
+{"event":"nl:stderr","line":"\u001b[33m⠋\u001b[39m Looking for a functions cache...\n","ts":"2025-09-16T09:49:55.209Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m Deploying functions from cache (use --skip-functions-cache to override)\n","ts":"2025-09-16T09:49:55.212Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m Finished hashing 57 files, 1 functions and edge functions\n","ts":"2025-09-16T09:49:55.351Z"}
+{"event":"nl:stderr","line":"\u001b[33m⠋\u001b[39m CDN diffing files...\n","ts":"2025-09-16T09:49:55.351Z"}
+{"event":"nl:stderr","line":"\u001b[33m⠋\u001b[39m Uploading 6 files\n","ts":"2025-09-16T09:49:56.712Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m CDN requesting 5 files and 1 functions\n","ts":"2025-09-16T09:49:56.712Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m Finished uploading 6 assets\n\u001b[33m⠋\u001b[39m Waiting for deploy to go live...\n","ts":"2025-09-16T09:51:06.277Z"}
+{"event":"nl:stderr","line":"\u001b[32m✔\u001b[39m Deploy is live!\n","ts":"2025-09-16T09:51:11.329Z"}
+{"event":"nl:stdout","line":"\u001b[96m\u001b[1m​\u001b[22m\u001b[39m\n\u001b[96m\u001b[1mNetlify Build Complete                                        \u001b[22m\u001b[39m\n\u001b[96m\u001b[1m────────────────────────────────────────────────────────────────\u001b[22m\u001b[39m\n​\n","ts":"2025-09-16T09:51:16.253Z"}
+{"event":"nl:stdout","line":"\u001b[90m(Netlify Build completed in 3m 4.2s)\u001b[39m\n","ts":"2025-09-16T09:51:16.253Z"}
+{"event":"nl:stdout","line":"\n🚀 Deploy complete\n────────────────────────────────────────────────────────────────\n","ts":"2025-09-16T09:51:16.254Z"}
+{"event":"nl:stdout","line":"\n╭────────────────────── ⬥  Production deploy is live ⬥  ───────────────────────╮\n│                                                                              │\n│                         Deployed to production URL:                          │\n│                https://bejewelled-manatee-a17050.netlify.app                 │\n│                                                                              │\n│                             Unique deploy URL:                               │\n│   https://68c932b1617bd7e8a4eb86fb--bejewelled-manatee-a17050.netlify.app    │\n│                                                                              │\n╰──────────────────────────────────────────────────────────────────────────────╯\n\n","ts":"2025-09-16T09:51:16.262Z"}
+{"event":"nl:stdout","line":"\u001b[32mBuild logs: \u001b[39m        https://app.netlify.com/projects/bejewelled-manatee-a17050/deploys/68c932b1617bd7e8a4eb86fb\n\u001b[32mFunction logs: \u001b[39m     https://app.netlify.com/projects/bejewelled-manatee-a17050/logs/functions\n\u001b[32mEdge function Logs: \u001b[39mhttps://app.netlify.com/projects/bejewelled-manatee-a17050/logs/edge-functions\n","ts":"2025-09-16T09:51:16.263Z"}
+{"url":"https://bejewelled-manatee-a17050.netlify.app","logsUrl":"https://app.netlify.com/projects/bejewelled-manatee-a17050/deploys/68c932b1617bd7e8a4eb86fb","provider":"netlify","target":"prod","durationMs":197497,"final":true,"ts":"2025-09-16T09:51:16.306Z"}

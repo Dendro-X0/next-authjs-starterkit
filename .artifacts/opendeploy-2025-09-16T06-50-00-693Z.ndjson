@@ -1,0 +1,7 @@
+{"event":"phase","phase":"generate-config","provider":"netlify","path":"E:\\Codebase\\my-workspace\\next-authjs-starterkit","ts":"2025-09-16T06:50:08.416Z"}
+{"event":"phase","phase":"deploy","provider":"netlify","command":"netlify deploy --build --prod","cwd":"E:\\Codebase\\my-workspace\\next-authjs-starterkit","ts":"2025-09-16T06:50:08.419Z"}
+{"event":"nl:stdout","line":" »   Warning: --build is now the default and can safely be omitted.\n","ts":"2025-09-16T06:50:12.806Z"}
+{"event":"nl:stdout","line":"This folder isn't linked to a project yet\n","ts":"2025-09-16T06:50:17.535Z"}
+{"event":"nl:stdout","line":"\nTo create and deploy in one go, use: netlify deploy --create-site <SITE_NAME> --prod\n","ts":"2025-09-16T06:50:17.535Z"}
+{"event":"nl:stdout","line":"? What would you like to do? (Use arrow keys)\n> ⇄  Link this directory to an existing project \n  +  Create & configure a new project ","ts":"2025-09-16T06:50:17.548Z"}
+{"event":"nl:stdout","line":"\u001b[38D\u001b[38C","ts":"2025-09-16T06:50:17.549Z"}
