@@ -62,3 +62,6 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+
+# Local OpenDeploy logs
+.artifacts
