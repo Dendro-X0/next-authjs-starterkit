@@ -65,3 +65,6 @@ Thumbs.db
 
 # Local OpenDeploy logs
 .artifacts
+.vercel
+
+.opendeploy
