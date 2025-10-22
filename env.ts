@@ -5,6 +5,24 @@ export const env = createEnv({
   server: {
     DATABASE_URL: z.string().url(),
     AUTH_SECRET: z.string().min(1),
+    // NextAuth v5 server URL and proxy trust settings
+    // If deploying behind a proxy (e.g., Netlify, Vercel, Cloudflare), set one of these:
+    // - AUTH_URL / NEXTAUTH_URL to your public base URL
+    // - AUTH_TRUST_HOST=true to trust the forwarded host header
+    AUTH_URL: z.string().url().optional(),
+    NEXTAUTH_URL: z.string().url().optional(),
+    AUTH_TRUST_HOST: z
+      .preprocess((val) => {
+        if (typeof val === "boolean") return val;
+        if (typeof val === "number") return val !== 0;
+        if (typeof val === "string") {
+          const v = val.trim().toLowerCase();
+          if (["1", "true", "yes", "on"].includes(v)) return true;
+          if (["0", "false", "no", "off", ""].includes(v)) return false;
+        }
+        return val;
+      }, z.boolean())
+      .optional(),
     RESEND_API_KEY: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
@@ -37,6 +55,9 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     AUTH_SECRET: process.env.AUTH_SECRET,
+    AUTH_URL: process.env.AUTH_URL,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    AUTH_TRUST_HOST: process.env.AUTH_TRUST_HOST,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
@@ -58,3 +79,4 @@ export const env = createEnv({
   //   NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   // },
 });
+

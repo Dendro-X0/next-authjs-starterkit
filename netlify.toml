@@ -5,6 +5,9 @@
   publish = ".next"
   [build.environment]
     NODE_VERSION = "20"
+    # Ensure NextAuth builds callback URLs from the incoming Host header
+    # This is important for production domain and preview deploy URLs.
+    AUTH_TRUST_HOST = "true"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
