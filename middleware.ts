@@ -1,4 +1,4 @@
-import { auth } from "~/auth";
+import { auth } from "~/auth-edge";
 import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
@@ -35,5 +35,6 @@ export default auth((req) => {
 // Optionally, don't invoke Middleware on some paths
 // Read more: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  // Only run on page routes; skip _next assets and all API routes to reduce latency
+  matcher: ["/((?!.+\\.[\\w]+$|_next|api).*)", "/"],
 };

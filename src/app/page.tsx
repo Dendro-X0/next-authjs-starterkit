@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Lock, Mail, Users, ShieldCheck, KeyRound, Settings } from "lucide-react";
 
+// Optimize TTFB for the public homepage by prerendering and revalidating hourly
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col items-center justify-center bg-background">

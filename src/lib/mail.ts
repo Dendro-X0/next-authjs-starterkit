@@ -3,7 +3,11 @@ import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
 import { env } from '~/env';
 
-const domain: string = env.NEXT_PUBLIC_APP_URL;
+// Compute a robust domain for email links.
+// Prefer explicit NEXT_PUBLIC_APP_URL; fall back to Vercel-provided host; finally localhost.
+const vercelHost: string | undefined = process.env.VERCEL_URL;
+const defaultDomain: string = vercelHost ? `https://${vercelHost}` : 'http://localhost:3000';
+const domain: string = env.NEXT_PUBLIC_APP_URL ?? defaultDomain;
 const provider: "RESEND" | "SMTP" = env.MAIL_PROVIDER;
 const fromAddress: string = env.EMAIL_FROM ?? 'onboarding@resend.dev';
 const secure: boolean = env.SMTP_SECURE ?? false;
