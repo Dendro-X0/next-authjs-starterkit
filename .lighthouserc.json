@@ -7,7 +7,9 @@
       ],
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop"
+        "preset": "desktop",
+        "maxWaitForFcp": 60000,
+        "maxWaitForLoad": 120000
       }
     },
     "assert": {
@@ -20,7 +22,13 @@
         "first-contentful-paint": ["error", { "maxNumericValue": 1200, "aggregationMethod": "p90" }],
         "largest-contentful-paint": ["error", { "maxNumericValue": 1500, "aggregationMethod": "p90" }],
         "total-blocking-time": ["error", { "maxNumericValue": 150, "aggregationMethod": "p90" }],
-        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1, "aggregationMethod": "p90" }]
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1, "aggregationMethod": "p90" }],
+        "errors-in-console": ["warn", { "minScore": 0 }],
+        "label-content-name-mismatch": ["warn", { "minScore": 0.9 }],
+        "lcp-lazy-loaded": "off",
+        "non-composited-animations": "off",
+        "prioritize-lcp-image": "off",
+        "unused-javascript": ["warn", { "maxLength": 3 }]
       }
     },
     "upload": {

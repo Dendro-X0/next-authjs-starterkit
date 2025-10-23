@@ -15,7 +15,8 @@ export function Header() {
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between mx-auto px-4">
         <div className="flex items-center space-x-4">
-          <Link href="/" className="font-semibold" aria-label="Home">
+          {/* Accessible name should match visible text to avoid label-content-name-mismatch */}
+          <Link href="/" className="font-semibold">
             Auth Boilerplate
           </Link>
         </div>

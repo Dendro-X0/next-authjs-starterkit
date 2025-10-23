@@ -101,10 +101,11 @@ export function LoginForm() {
                   name="code"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Two Factor Code</FormLabel>
+                      <FormLabel htmlFor="two-factor-code">Two Factor Code</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
+                          id="two-factor-code"
                           placeholder="123456"
                           inputMode="numeric"
                           autoComplete="one-time-code"
@@ -123,10 +124,11 @@ export function LoginForm() {
                     name="identifier"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email or Username</FormLabel>
+                        <FormLabel htmlFor="identifier-input">Email or Username</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
+                            id="identifier-input"
                             placeholder="johndoe or john@example.com"
                             type="text"
                             autoComplete="username"
@@ -143,11 +145,12 @@ export function LoginForm() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel htmlFor="password-input">Password</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Input
                               {...field}
+                              id="password-input"
                               placeholder="********"
                               type={showPassword ? "text" : "password"}
                               autoComplete="current-password"
@@ -191,11 +194,12 @@ export function LoginForm() {
                             <Checkbox
                               checked={field.value}
                               onCheckedChange={field.onChange}
+                              id="remember-me"
                               disabled={isPending}
                             />
                           </FormControl>
                           <div className="space-y-1 leading-none">
-                            <FormLabel>Remember me</FormLabel>
+                            <FormLabel htmlFor="remember-me">Remember me</FormLabel>
                           </div>
                         </FormItem>
                       )}

@@ -13,7 +13,7 @@ export function ResendVerificationForm(): React.ReactElement {
   const [state, action] = useActionState(resendVerification, {} as ResendVerificationState);
   return (
     <div className="mt-6 border-t pt-6">
-      <h3 className="text-sm font-medium">Didn&apos;t receive the verification email?</h3>
+      <h2 className="text-sm font-medium">Didn&apos;t receive the verification email?</h2>
       <p className="text-xs text-muted-foreground mb-3">
         Enter your email address and we&apos;ll send a new verification link.
       </p>
