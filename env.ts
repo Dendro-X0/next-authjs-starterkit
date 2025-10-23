@@ -23,6 +23,8 @@ export const env = createEnv({
         return val;
       }, z.boolean())
       .optional(),
+    // Redirect Proxy: stable auth domain used to route callbacks to previews
+    AUTH_REDIRECT_PROXY_URL: z.string().url().optional(),
     RESEND_API_KEY: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
@@ -49,7 +51,8 @@ export const env = createEnv({
     SMTP_PASS: z.string().optional(),
   },
   client: {
-    NEXT_PUBLIC_APP_URL: z.string().url(),
+    // Optional: used only for client-side absolute links; not required at runtime
+    NEXT_PUBLIC_APP_URL: z.string().url().optional(),
   },
   // For Next.js >= 13.4.4, you need to destructure the process.env variables manually
   runtimeEnv: {
@@ -58,6 +61,7 @@ export const env = createEnv({
     AUTH_URL: process.env.AUTH_URL,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     AUTH_TRUST_HOST: process.env.AUTH_TRUST_HOST,
+    AUTH_REDIRECT_PROXY_URL: process.env.AUTH_REDIRECT_PROXY_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
