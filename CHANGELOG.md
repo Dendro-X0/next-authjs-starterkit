@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2025-10-22
+
+### Added
+- Added health-check API route at `/api/health` to diagnose production slowness and DB connectivity.
+
+### Changed
+- Restructured middleware to use edge runtime only for authentication.
+- Restructured middleware matcher to exclude API routes.
+- Restructured middleware to use edge runtime only for authentication.
+
 ## 2025-09-14
 
 ### Added

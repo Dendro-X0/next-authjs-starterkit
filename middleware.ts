@@ -5,8 +5,10 @@ import {
   authRoutes,
   publicRoutes,
 } from "@/routes";
+import { NextResponse } from "next/server";
 
 export default auth((req) => {
+  const t0 = Date.now();
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
 
@@ -15,21 +17,27 @@ export default auth((req) => {
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
-    return;
+    const res = NextResponse.next();
+    res.headers.set("Server-Timing", `mw;desc=auth;dur=${Date.now() - t0}`);
+    return res;
   }
 
   if (isAuthRoute) {
     if (isLoggedIn) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
-    return;
+    const res = NextResponse.next();
+    res.headers.set("Server-Timing", `mw;desc=auth;dur=${Date.now() - t0}`);
+    return res;
   }
 
   if (!isLoggedIn && !isPublicRoute) {
     return Response.redirect(new URL("/auth/login", nextUrl));
   }
 
-  return;
+  const res = NextResponse.next();
+  res.headers.set("Server-Timing", `mw;desc=auth;dur=${Date.now() - t0}`);
+  return res;
 });
 
 // Optionally, don't invoke Middleware on some paths

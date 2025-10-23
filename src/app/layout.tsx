@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import { QueryProvider } from "@/components/query-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/header";
+import { WebVitals } from "@/components/analytics/web-vitals";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Toaster />
+            <WebVitals />
           </ThemeProvider>
         </QueryProvider>
       </body>
