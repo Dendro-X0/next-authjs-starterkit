@@ -6,7 +6,7 @@ Credentials login supports signing in with either a verified email address or a 
 
 ## Tech Stack
 
-- Framework: [Next.js](https://nextjs.org/) 15
+- Framework: [Next.js](https://nextjs.org/) 16
 - Authentication: [NextAuth.js (Auth.js v5)](https://authjs.dev/)
 - ORM: [Prisma](https://www.prisma.io/)
 - UI: [Tailwind CSS](https://tailwindcss.com/) & [Shadcn UI](https://ui.shadcn.com/)
