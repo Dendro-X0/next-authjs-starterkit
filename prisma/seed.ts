@@ -15,13 +15,11 @@ async function main(): Promise<void> {
 main()
   .then(async (): Promise<void> => {
     await prisma.$disconnect()
-    // eslint-disable-next-line no-console
     console.log('Seed complete')
   })
   .catch(async (err: unknown): Promise<void> => {
     await prisma.$disconnect()
     const msg: string = err instanceof Error ? err.message : String(err)
-    // eslint-disable-next-line no-console
     console.error('Seed failed:', msg)
     process.exit(1)
   })

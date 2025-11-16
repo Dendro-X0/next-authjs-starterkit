@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { newVerification } from "@/actions/new-verification";
 import { AuthCard } from "@/components/auth/auth-card";
@@ -12,30 +12,34 @@ export const NewVerificationForm = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
-  const [error, setError] = useState<string | undefined>();
+  const [error, setError] = useState<string | undefined>(() => {
+    if (!token) return "Missing token!";
+    return undefined;
+  });
   const [success, setSuccess] = useState<string | undefined>();
 
-  const onSubmit = useCallback(() => {
-    if (success || error) return;
-
-    if (!token) {
-      setError("Missing token!");
+  useEffect(() => {
+    if (!token || success || error) {
       return;
     }
 
+    let cancelled = false;
+
     newVerification(token)
       .then((data) => {
+        if (cancelled) return;
         setSuccess(data.success);
         setError(data.error);
       })
       .catch(() => {
+        if (cancelled) return;
         setError("Something went wrong!");
       });
-  }, [token, success, error]);
 
-  useEffect(() => {
-    onSubmit();
-  }, [onSubmit]);
+    return () => {
+      cancelled = true;
+    };
+  }, [token, success, error]);
 
   return (
     <AuthCard
